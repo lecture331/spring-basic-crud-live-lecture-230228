@@ -26,19 +26,19 @@ public class SpringBasicCrudLiveLecture230228Application {
 		SpringApplication.run(SpringBasicCrudLiveLecture230228Application.class, args);
 	}
 
-	@Resource
-	private CourseRepository courseRepository;
-
-	@Bean
-	public ApplicationRunner applicationRunner() {
-		return args -> {
-			File json = ResourceUtils.getFile("classpath:CourseData.json");
-
-			List<CourseRequestDto> list = new ObjectMapper().readValue(json,new TypeReference<>(){});
-			List<Course> courses = list.stream().map(Course::new).collect(Collectors.toCollection(ArrayList::new));
-
-			courseRepository.saveAll(courses);
-		};
-	}
+//	@Resource
+//	private CourseRepository courseRepository;
+//
+//	@Bean
+//	public ApplicationRunner applicationRunner() {
+//		return args -> {
+//			File json = ResourceUtils.getFile("classpath:CourseData.json");
+//
+//			List<CourseRequestDto> list = new ObjectMapper().readValue(json,new TypeReference<>(){});
+//			List<Course> courses = list.stream().map(Course::new).collect(Collectors.toCollection(ArrayList::new));
+//
+//			courseRepository.saveAll(courses);
+//		};
+//	}
 
 }
